@@ -13,5 +13,9 @@ $ cp config.dist.yml config.yml && cp ansible/vars.dist.yml ansible/vars.yml
 
 - Create VM
 ```sh
-$ vagrant up
+$ vagrant up --provider=digital_ocean
+```
+or
+```sh
+$ vagrant up --provider=aws
 ```

@@ -1,18 +1,24 @@
 ---
 - name: Install pptp
+  sudo: yes
   apt: pkg={{ item }} state=present
   with_items:
     - pptpd
 
 - name: Write configuration
+  sudo: yes
   copy: src=pptpd-options dest=/etc/ppp/pptpd-options owner=root group=root
   notify: restart pptpd
 
 - name: Write secrets
+  sudo: yes
   template: src=chap-secrets.j2 dest=/etc/ppp/chap-secrets
   notify: restart pptpd
 
 - name: Enable IPv4-Forwarding
+  sudo: yes
   sysctl: name=net.ipv4.ip_forward value=1 state=present
+
 - name: Setup NAT-Rule
+  sudo: yes
   shell: iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE && iptables-save
