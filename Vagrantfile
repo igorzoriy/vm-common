@@ -16,8 +16,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         override.vm.box_url = 'https://github.com/smdahlen/vagrant-digitalocean/raw/master/box/digital_ocean.box'
 
         provider.token = local_config['token']
-        provider.image = 'Docker 1.2.0 on Ubuntu 14.04'
+        provider.image = 'Ubuntu 14.04 x64'
         provider.region = 'sgp1'
         provider.size = '512mb'
+    end
+
+    config.vm.provision 'ansible' do |ansible|
+        ansible.playbook = 'ansible/playbook.yml'
     end
 end
