@@ -1,3 +1,5 @@
 ---
 pptpd_username: pptpd
 pptpd_password: pptpd
+btsync_username: btsync
+btsync_password: btsync

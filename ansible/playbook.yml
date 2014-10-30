@@ -5,3 +5,4 @@
     - vars.yml
   roles:
     - { role: pptpd, user: "{{pptpd_username}}", password: "{{pptpd_password}}" }
+    - { role: btsync, user: "{{btsync_username}}", password: "{{btsync_password}}"}
