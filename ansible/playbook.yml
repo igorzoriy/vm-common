@@ -5,3 +5,4 @@
     - vars.yml
   roles:
     - { role: btsync, user: "{{btsync_username}}", password: "{{btsync_password}}"}
+    - { role: openvpn }

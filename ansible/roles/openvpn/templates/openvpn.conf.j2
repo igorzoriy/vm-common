@@ -1,0 +1,18 @@
+server 10.11.12.0 255.255.255.0
+port 443
+proto tcp
+dev tun
+comp-lzo
+duplicate-cn
+keepalive 10 120
+
+dh dh.pem
+key key.pem
+ca cert.pem
+cert cert.pem
+persist-tun
+persist-key
+
+log /var/log/openvpn/server.log
+status /var/log/openvpn/status.log 1
+verb 3

@@ -6,7 +6,7 @@ Configs for my common VM
 ## Usage
 - Create config files
 ```sh
-$ cp config.dist.yml config.yml && cp ansible/vars.dist.yml ansible/vars.yml
+$ cp config.dist.yml config.yml && cp ansible/local/vars.dist.yml ansible/local/vars.yml
 ```
 
 - Change data in config files
