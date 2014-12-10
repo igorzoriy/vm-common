@@ -5,7 +5,6 @@ client
 nobind
 dev tun
 proto tcp
-redirect-gateway def1
 remote vpn.igorzoriy.com 443
 
 <key>

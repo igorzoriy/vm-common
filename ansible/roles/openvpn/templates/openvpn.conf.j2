@@ -1,10 +1,12 @@
-server 10.11.12.0 255.255.255.0
+server 10.10.10.0 255.255.255.0
 port 443
 proto tcp
 dev tun
-comp-lzo
-duplicate-cn
+;comp-lzo
+;duplicate-cn
 keepalive 10 120
+
+push "redirect-gateway def1"
 
 dh dh.pem
 key key.pem
