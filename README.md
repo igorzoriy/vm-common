@@ -1,21 +1,35 @@
-#vm-common
+# vm-common
 
 ## Description
 Configs for my common VM
 
 ## Usage
-- Create config files
+- Create VM with docker
 ```sh
-$ cp config.dist.yml config.yml && cp ansible/local/vars.dist.yml ansible/local/vars.yml
+$ docker-machine create
+    --driver digitalocean
+    --digitalocean-access-token TOKEN
+    --digitalocean-image "ubuntu-14-04-x64"
+    --digitalocean-region "fra1"
+    vm-common
 ```
 
-- Change data in config files
-
-- Create VM
+- Switch to VM
 ```sh
-$ vagrant up --provider=digital_ocean
+$ docker-machine env vm-common
 ```
-or
+
+- Create image(s)
 ```sh
-$ vagrant up --provider=aws
+$ docker build -t openvpn ./openvpn
+```
+
+- Create containers
+```sh
+$ docker run -d --privileged -p 443:443/tcp openvpn
+```
+
+- Copy openvpn client config
+```sh
+$ docker cp CONTAINER_ID:/etc/openvpn/client.ovpn ~/path/to/client.ovpn
 ```

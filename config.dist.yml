@@ -1,6 +1,0 @@
-do_token: 'api token'
-do_ssh_key_path: '~/.ssh/id_rsa'
-
-aws_key: 'key'
-aws_secret: 'secret'
-aws_ssh_key_path: '~/.ssh/id_rsa'
