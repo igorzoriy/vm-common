@@ -1,11 +1,8 @@
-FROM ubuntu:trusty
-ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update
-RUN apt-get install -y openvpn openssl iptables
-
+FROM ubuntu:xenial
+RUN apt-get update -q
+RUN apt-get install -yq openvpn openssl iptables
 ADD ./openvpn.conf /etc/openvpn/openvpn.conf
 ADD ./bin /bin
-RUN chmod 700 /bin/run-openvpn.sh
-
+RUN chmod 700 /bin/run.sh
 EXPOSE 443/tcp
-CMD run-openvpn.sh
+CMD run.sh

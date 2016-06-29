@@ -6,27 +6,22 @@ Configs for my common VM
 ## Usage
 - Create VM with docker
 ```sh
-$ docker-machine create
-    --driver digitalocean
-    --digitalocean-access-token TOKEN
-    --digitalocean-image "ubuntu-14-04-x64"
-    --digitalocean-region "fra1"
+$ docker-machine create\
+    --driver digitalocean\
+    --digitalocean-access-token {TOKEN}\
+    --digitalocean-image "ubuntu-16-04-x64"\
+    --digitalocean-region "ams2"\
     vm-common
 ```
 
 - Switch to VM
 ```sh
-$ docker-machine env vm-common
+$  eval $(docker-machine env vm-common)
 ```
 
-- Create image(s)
+- Build images and containers
 ```sh
-$ docker build -t openvpn ./openvpn
-```
-
-- Create containers
-```sh
-$ docker run -d --privileged -p 443:443/tcp openvpn
+$ docker-compose up --build -d
 ```
 
 - Copy openvpn client config
