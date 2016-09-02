@@ -28,3 +28,8 @@ $ docker-compose up --build -d
 ```sh
 $ docker cp CONTAINER_ID:/etc/openvpn/client.ovpn ~/path/to/client.ovpn
 ```
+
+- Start docker containers
+```sh
+$ cd /path/to/docker-compose.yml && docker-compose start
+```
