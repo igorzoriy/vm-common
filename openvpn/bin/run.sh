@@ -18,13 +18,20 @@ cd /etc/openvpn
 [ -f cert.pem ] ||
     openssl x509 -req -in csr.pem -out cert.pem -signkey key.pem -days 36525
 
+# ip
+MY_IP_ADDR=$(curl http://myip.enix.org/REMOTE_ADDR)
+[ "$MY_IP_ADDR" ] || {
+    echo "Sorry, I could not figure out my public IP address."
+    exit 1
+}
+
 # client config
 [ -f client.ovpn ] || cat >client.ovpn <<EOF
 client
 nobind
 dev tun
 proto tcp
-remote vpn.igorzoriy.com 443
+remote $MY_IP_ADDR 443
 <key>
 `cat key.pem`
 </key>
