@@ -10,7 +10,7 @@ $ docker-machine create\
     --driver digitalocean\
     --digitalocean-access-token {TOKEN}\
     --digitalocean-image "ubuntu-16-04-x64"\
-    --digitalocean-region "ams2"\
+    --digitalocean-region "fra1"\
     vm-common
 ```
 
@@ -31,5 +31,15 @@ $ docker cp CONTAINER_ID:/etc/openvpn/client.ovpn ~/path/to/client.ovpn
 
 - Start docker containers
 ```sh
-$ cd /path/to/docker-compose.yml && docker-compose start
+$ docker-compose start
+```
+
+- Stop and remove docker containers
+```sh
+$ docker-compose down
+```
+
+- Remove VM with docker
+```sh
+$ docker-machine rm vm-common
 ```
