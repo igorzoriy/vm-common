@@ -13,6 +13,13 @@ $ docker-machine create\
     --digitalocean-region "fra1"\
     vm-common
 ```
+or
+```sh
+$ docker-machine create\
+    --driver amazonec2\
+    --amazonec2-region "eu-central-1"\
+    vm-common
+```
 
 - Switch to VM
 ```sh

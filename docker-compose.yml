@@ -1,7 +1,10 @@
-version: "2"
+version: "3"
 services:
     openvpn:
         build: "./openvpn"
         ports:
             - "443:443"
+        logging:
+            driver: none
         privileged: true
+        restart: unless-stopped
