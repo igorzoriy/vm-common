@@ -28,14 +28,14 @@ $ docker-machine create\
 $  eval $(docker-machine env vm-common)
 ```
 
+- Remove VM with docker
+```sh
+$ docker-machine rm vm-common
+```
+
 - Build images and containers
 ```sh
 $ docker-compose up --build -d
-```
-
-- Copy openvpn client config
-```sh
-$ docker cp CONTAINER_ID:/etc/openvpn/client.ovpn ~/path/to/client.ovpn
 ```
 
 - Start docker containers
@@ -48,7 +48,17 @@ $ docker-compose start
 $ docker-compose down
 ```
 
-- Remove VM with docker
+- Copy openvpn client config
 ```sh
-$ docker-machine rm vm-common
+$ docker cp CONTAINER_ID:/etc/openvpn/client.ovpn ~/path/to/client.ovpn
+```
+
+- Dante user management
+```sh
+# add user
+$ docker exec -ti CONTAINER_ID /bin/users/add USERNAME PASSWORD
+# delete user
+$ docker exec -ti CONTAINER_ID /bin/users/del USERNAME
+# list of users
+$ docker exec -ti CONTAINER_ID /bin/users/list
 ```
