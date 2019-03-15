@@ -19,6 +19,7 @@ $ docker-machine create\
     --driver amazonec2\
     --amazonec2-instance-type "t2.nano"\
     --amazonec2-region "eu-central-1"\
+    --amazonec2-root-size 4\
     --amazonec2-open-port 443\
     vm-common
 ```
