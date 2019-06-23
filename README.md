@@ -1,7 +1,7 @@
-# vm-common
+# dockerfiles
 
 ## Description
-Configs for my common VM
+Configs for my services
 
 ## Usage
 - Create VM with docker
