@@ -23,6 +23,13 @@ $ docker-machine create\
     --amazonec2-open-port 443\
     vm-common
 ```
+or
+```sh
+$ docker-machine create\
+    -d vscale
+    --vscale-access-token {TOKEN}
+    vm-ru
+```
 
 - Switch to VM
 ```sh
