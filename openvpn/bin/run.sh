@@ -9,7 +9,7 @@ cd /etc/openvpn
 
 # pems
 [ -f dh.pem ] ||
-    openssl dhparam -out dh.pem 1024
+    openssl dhparam -out dh.pem 2048
 [ -f key.pem ] ||
     openssl genrsa -out key.pem 2048
     chmod 600 key.pem
@@ -46,5 +46,5 @@ remote $MY_IP_ADDR 443
 </dh>
 EOF
 
-iptables -t nat -A POSTROUTING -s 10.10.10.0/24 -o eth0 -j MASQUERADE
+iptables -t nat -A POSTROUTING -s 192.168.255.0/24 -o eth0 -j MASQUERADE
 openvpn openvpn.conf
